@@ -6,32 +6,34 @@ import com.sda.mvc.model.Health;
 import com.sda.mvc.model.Nourishment;
 import com.sda.mvc.view.GigantView;
 
+import java.util.List;
+
 public class GigantController {
 
     private GigantView gigantView;
-    private GigantModel gigantModel;
+    private List<GigantModel> gigantModelList;
 
-    public GigantController(GigantView gigantView, GigantModel gigantModel) {
+    public GigantController(GigantView gigantView, List<GigantModel> gigantModelList) {
         this.gigantView = gigantView;
-        this.gigantModel = gigantModel;
+        this.gigantModelList = gigantModelList;
     }
 
-    public Health getHealth() { return gigantModel.getHealth(); }
+    public Health getHealth(int index) { return gigantModelList.get(index).getHealth(); }
 
-    public void setHealth(Health health) {gigantModel.setHealth(health); }
+    public void setHealth(int index, Health health) {gigantModelList.get(index).setHealth(health); }
 
-    public Fatigue getFatigue() { return gigantModel.getFatigue(); }
+    public Fatigue getFatigue(int index) { return gigantModelList.get(index).getFatigue(); }
 
-    public void setFatigue(Fatigue fatigue) { gigantModel.setFatigue(fatigue); }
+    public void setFatigue(int index, Fatigue fatigue) { gigantModelList.get(index).setFatigue(fatigue); }
 
-    public Nourishment getNourishment() { return gigantModel.getNourishment(); }
+    public Nourishment getNourishment(int index) { return gigantModelList.get(index).getNourishment(); }
 
-    public void setNourishment(Nourishment nourishment) { gigantModel.setNourishment(nourishment); }
-
-
+    public void setNourishment(int index, Nourishment nourishment) { gigantModelList.get(index).setNourishment(nourishment); }
 
 
-    public void updateView(){
-        gigantView.displayGigant(gigantModel);
+
+
+    public void updateView(int index){
+        gigantView.displayGigant(gigantModelList.get(index));
     }
 }

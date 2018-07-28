@@ -7,16 +7,20 @@ import com.sda.mvc.model.Health;
 import com.sda.mvc.model.Nourishment;
 import com.sda.mvc.view.GigantView;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        GigantModel gigantModel = new GigantModel(Health.WOUNDED, Fatigue.TRIED, Nourishment.SATURATED);
+        List<GigantModel> gigantModel = new LinkedList<GigantModel>();
         GigantView gigantView = new GigantView();
+        gigantModel.add(new GigantModel(Health.DEAD, Fatigue.TRIED, Nourishment.SATURATED ));
 
         GigantController gigantController = new GigantController(gigantView, gigantModel );
 
-        gigantController.updateView();
-        gigantController.setHealth(Health.DEAD);
-        gigantController.updateView();
+        gigantController.updateView(0);
+        gigantController.setHealth(0, Health.WOUNDED);
+        gigantController.updateView(0);
 
     }
 }
