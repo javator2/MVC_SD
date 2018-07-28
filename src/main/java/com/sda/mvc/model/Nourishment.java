@@ -1,4 +1,12 @@
 package com.sda.mvc.model;
 
-public class Nourishment {
+public enum Nourishment {
+
+    SATURATED("saturated"),;
+
+    private String title;
+
+    Nourishment(String title) {
+        this.title = title;
+    }
 }
